@@ -1,0 +1,39 @@
+<div class="container">
+	<h2>User info</h2>
+
+	<div class="form-group" role="form">
+
+		<%= form_for @user do |f| %>
+			<% if @user.errors.any? %>
+			<div class="alert">
+				<h2><%= pluralize(@user.errors.count, "error")%>prohibited this obj from being saved:</h2>
+
+				<ul>
+					<% @user.errors.full_messages.each do |message| %>
+					<li><%= message %></li>s
+					<% ends
+				</ul>
+			</div>
+			<% end %>
+
+			<div class="field">
+				<label>Name</label>
+				<%= f.text_field :name %>
+			</div>
+
+			<div class="field">
+				<label>Image</label>
+				<%= f.attachment_field :profile_image %>
+			</div>
+
+			<div class="field">
+				<label>Introduction</label>
+				<%= f.text_area :introduction %>
+			</div>
+
+			<div class="actions">
+				<input type="submit" name="commit" value="Update User" data-disable-with="Update User" >
+			</div>
+		<% end %>
+	</div>
+</div>
